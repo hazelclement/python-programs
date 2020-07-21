@@ -1,0 +1,47 @@
+import pygame
+pygame.init()
+
+width=400
+height=400
+
+screen = pygame.display.set_mode((width, height))
+pygame.display.set_caption("FIRST GAME")
+char_full = pygame.image.load("./flappy-bird-background-png-17.png")
+
+char = pygame.Surface((80, 60))
+char.fill((10,10,10))
+char.set_colorkey((10,10,10))
+speed=((2,2))
+
+char.blit(char_full, (0,0), area=pygame.Rect(0, 40, 80, 60))
+char_rect= char.get_rect()
+screen_rect = screen.get_rect()
+vel = 10
+
+run = True
+x, y = 20,20
+a,b=x,y
+while run:
+    pygame.time.delay(100)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            run = False
+
+    keys = pygame.key.get_pressed()
+    if keys[pygame.K_UP] and y > 0:
+        y-= vel
+    if keys[pygame.K_DOWN] and y < width-vel-char_rect.height:
+        y += vel
+    if char_rect.left < 0 or  char_rect.right > width:
+        speed[0] = 0
+    if char_rect.top < 0 or char_rect.bottom > height:
+        speed[1] = 0
+
+    screen.fill((0,100,80))
+
+    x+= 5
+    y+= 5
+    screen.blit(char, char_rect.move(x, y))
+    pygame.display.update()
+
+pygame.quit()

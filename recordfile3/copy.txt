@@ -1,0 +1,11 @@
+red
+yellow
+green
+blue
+indigo
+violetred
+yellow
+green
+blue
+indigo
+violet
