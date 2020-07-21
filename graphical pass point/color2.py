@@ -20,11 +20,7 @@ label.after(4000, label.destroy)
 root.update()
 time.sleep(4)
 
-login=tkinter.Label(root,text='''Would you like to generate a password or login to the game?
 
-         For generating, press 1
-
-         For login, press 2  ''')
 login.grid(column=20, row=0)
 generate=tkinter.Label(root, text="Generate/Login")
 generate.grid(row=20,column=0)
